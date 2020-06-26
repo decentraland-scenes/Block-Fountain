@@ -1,4 +1,5 @@
 import utils from '../node_modules/decentraland-ecs-utils/index'
+import { Button } from './buttons'
 
 let sceneMessageBus = new MessageBus()
 
@@ -70,7 +71,7 @@ engine.addEntity(base)
 
 let ring1 = new Ring(
   {
-    position: new Vector3(0, -0.9, 0),
+    position: new Vector3(0, -0.75, 0),
   },
   'models/fountain/FirstRing.glb',
   '1stRing_Action_01',
@@ -83,7 +84,7 @@ rings.push(ring1)
 
 let ring2 = new Ring(
   {
-    position: new Vector3(0, -0.9, 0),
+    position: new Vector3(0, -0.8, 0),
   },
   'models/fountain/SecondRing.glb',
   '2ndRing_Action_01',
@@ -96,7 +97,7 @@ rings.push(ring2)
 
 let ring3 = new Ring(
   {
-    position: new Vector3(0, -0.9, 0),
+    position: new Vector3(0, -1, 0),
   },
   'models/fountain/ThirdRing.glb',
   '3rdRing_Action_01',
@@ -108,7 +109,7 @@ rings.push(ring3)
 
 let ring4 = new Ring(
   {
-    position: new Vector3(0, -0.9, 0),
+    position: new Vector3(0, -1, 0),
   },
   'models/fountain/FourthRing.glb',
   '4thRing_Action_01',
@@ -117,30 +118,6 @@ let ring4 = new Ring(
   base
 )
 rings.push(ring4)
-
-export class ConsoleButton extends Entity {
-  clickAnim: AnimationState
-  constructor(model: string, parent: Entity, animationName: string) {
-    super()
-    engine.addEntity(this)
-
-    this.addComponent(new GLTFShape(model))
-
-    this.setParent(parent)
-
-    this.addComponent(new AudioSource(new AudioClip('sounds/click.mp3')))
-
-    this.addComponent(new Animator())
-    this.clickAnim = new AnimationState(animationName, { looping: false })
-    this.getComponent(Animator).addClip(this.clickAnim)
-  }
-
-  public press(): void {
-    this.clickAnim.stop() // bug workaround
-    this.clickAnim.play()
-    this.getComponent(AudioSource).playOnce()
-  }
-}
 
 export class Console extends Entity {
   clickAnim: AnimationState
@@ -163,9 +140,9 @@ export class Console extends Entity {
     this.addComponent(new GLTFShape(model))
     this.addComponent(new Transform(transform))
 
-    let button1 = new ConsoleButton(button1Model, this, button1Anim)
-    let button2 = new ConsoleButton(button2Model, this, button2Anim)
-    let button3 = new ConsoleButton(button3Model, this, button3Anim)
+    let button1 = new Button(button1Model, {}, button1Anim, this)
+    let button2 = new Button(button2Model, {}, button2Anim, this)
+    let button3 = new Button(button3Model, {}, button3Anim, this)
 
     button1.addComponent(
       new OnPointerDown(() => {
