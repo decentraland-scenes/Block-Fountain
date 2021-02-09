@@ -14,6 +14,14 @@
     "decentraland-ecs": "latest"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "decentraland-ecs-utils": "^1.1.4"
   }
+=======
+    "@dcl/ecs-scene-utils": "^1.6.1"
+  },
+  "bundleDependencies": [
+    "@dcl/ecs-scene-utils"
+  ]
+>>>>>>> Stashed changes
 }
