@@ -1,9 +1,4 @@
-<<<<<<< Updated upstream
-import utils from '../node_modules/decentraland-ecs-utils/index'
-import { Button } from './button'
-=======
 import * as utils from '@dcl/ecs-scene-utils'
->>>>>>> Stashed changes
 import { Ring } from './ring'
 import { Console } from './console'
 import { RandomFountain } from './randomizer'
