@@ -1,5 +1,4 @@
-import utils from '../node_modules/decentraland-ecs-utils/index'
-import { Button } from './button'
+import utils from '@dcl/ecs-scene-utils'
 import { Ring } from './ring'
 import { Console } from './console'
 import { RandomFountain } from './randomizer'
