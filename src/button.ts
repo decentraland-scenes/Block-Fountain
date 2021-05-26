@@ -25,8 +25,7 @@ export class Button extends Entity {
   }
 
   public press(): void {
-    this.clickAnim.stop() // bug workaround
-    this.clickAnim.play()
+    this.clickAnim.play(true)
     this.getComponent(AudioSource).playOnce()
   }
 }
@@ -67,8 +66,6 @@ export class Switch extends Entity {
     if (this.isClicked === value) return
     this.isClicked = value
 
-    this.onAnim.stop()
-    this.offAnim.stop()
     const clip = value ? this.onAnim : this.offAnim
     clip.play()
 

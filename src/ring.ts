@@ -29,26 +29,17 @@ export class Ring extends Entity {
   }
   public play1(): void {
     log('playing1')
-    this.animation1.stop()
-    this.animation2.stop()
-    this.animation3.stop()
 
-    this.animation1.play()
+    this.animation1.play(true)
   }
   public play2(): void {
     log('playing2')
-    this.animation1.stop()
-    this.animation2.stop()
-    this.animation3.stop()
 
-    this.animation2.play()
+    this.animation2.play(true)
   }
   public play3(): void {
     log('playing3')
-    this.animation1.stop()
-    this.animation2.stop()
-    this.animation3.stop()
 
-    this.animation3.play()
+    this.animation3.play(true)
   }
 }
