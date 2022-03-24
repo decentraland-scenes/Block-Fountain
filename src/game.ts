@@ -3,22 +3,22 @@ import { Ring } from './ring'
 import { Console } from './console'
 import { RandomFountain } from './randomizer'
 
-let sceneMessageBus = new MessageBus()
+const sceneMessageBus = new MessageBus()
 
-let rings: Ring[] = []
+const rings: Ring[] = []
 
-let base = new Entity()
+const base = new Entity()
 base.addComponent(new GLTFShape('models/fountain/Base.glb'))
 base.addComponent(
   new Transform({
-    position: new Vector3(24, 0, 24),
+    position: new Vector3(24, 0, 24)
   })
 )
 engine.addEntity(base)
 
-let ring1 = new Ring(
+const ring1 = new Ring(
   {
-    position: new Vector3(0, -0.55, 0),
+    position: new Vector3(0, -0.55, 0)
   },
   'models/fountain/FirstRing.glb',
   '1stRing_Action_01',
@@ -29,9 +29,9 @@ let ring1 = new Ring(
 
 rings.push(ring1)
 
-let ring2 = new Ring(
+const ring2 = new Ring(
   {
-    position: new Vector3(0, -0.6, 0),
+    position: new Vector3(0, -0.6, 0)
   },
   'models/fountain/SecondRing.glb',
   '2ndRing_Action_01',
@@ -42,9 +42,9 @@ let ring2 = new Ring(
 
 rings.push(ring2)
 
-let ring3 = new Ring(
+const ring3 = new Ring(
   {
-    position: new Vector3(0, -0.8, 0),
+    position: new Vector3(0, -0.8, 0)
   },
   'models/fountain/ThirdRing.glb',
   '3rdRing_Action_01',
@@ -54,9 +54,9 @@ let ring3 = new Ring(
 )
 rings.push(ring3)
 
-let ring4 = new Ring(
+const ring4 = new Ring(
   {
-    position: new Vector3(0, -0.8, 0),
+    position: new Vector3(0, -0.8, 0)
   },
   'models/fountain/FourthRing.glb',
   '4thRing_Action_01',
@@ -66,7 +66,7 @@ let ring4 = new Ring(
 )
 rings.push(ring4)
 
-let cyanConsole = new Console(
+const cyanConsole = new Console(
   { position: new Vector3(-23, 0, 0) },
   base,
   'models/buttons/Cyan/Base/BaseCyan.glb',
@@ -80,10 +80,10 @@ let cyanConsole = new Console(
   sceneMessageBus
 )
 
-let redConsole = new Console(
+const redConsole = new Console(
   {
     position: new Vector3(0, 0, 23),
-    rotation: Quaternion.Euler(0, 90, 0),
+    rotation: Quaternion.Euler(0, 90, 0)
   },
   base,
   'models/buttons/Red/Base/BaseRed.glb',
@@ -97,10 +97,10 @@ let redConsole = new Console(
   sceneMessageBus
 )
 
-let violetConsole = new Console(
+const violetConsole = new Console(
   {
     position: new Vector3(23, 0, 0),
-    rotation: Quaternion.Euler(0, 180, 0),
+    rotation: Quaternion.Euler(0, 180, 0)
   },
   base,
   'models/buttons/Violet/Base/BaseViolet.glb',
@@ -114,7 +114,7 @@ let violetConsole = new Console(
   sceneMessageBus
 )
 
-let yellowConsole = new Console(
+const yellowConsole = new Console(
   { position: new Vector3(0, 0, -23), rotation: Quaternion.Euler(0, 270, 0) },
   base,
   'models/buttons/Yellow/Base/BaseYellow.glb',
@@ -150,6 +150,6 @@ sceneMessageBus.on('fountainAnim', (e) => {
 
 /// RANDOMIZER
 
-let fountainPlayer = new RandomFountain(rings, 10)
+const fountainPlayer = new RandomFountain(rings, 10)
 
 engine.addSystem(fountainPlayer)

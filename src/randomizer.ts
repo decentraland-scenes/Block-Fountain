@@ -26,12 +26,12 @@ export class RandomFountain implements ISystem {
     this.rings = rings
   }
   update(dt: number) {
-    if (this.playingMode == 0) {
+    if (this.playingMode === 0) {
       // in free control mode
       return
     }
 
-    if (this.playingMode == 1) {
+    if (this.playingMode === 1) {
       // random mode
 
       if (this.ringOneActive) {
@@ -63,7 +63,7 @@ export class RandomFountain implements ISystem {
       this.mainTimer += dt
 
       if (this.mainTimer > this.animDuration / 2) {
-        let randomIndex = Math.floor(Math.random() * 1500)
+        const randomIndex = Math.floor(Math.random() * 1500)
         //log(randomIndex)
         switch (randomIndex) {
           case 1:

@@ -22,9 +22,9 @@ export class Console extends Entity {
     this.addComponent(new GLTFShape(model))
     this.addComponent(new Transform(transform))
 
-    let button1 = new Button(button1Model, {}, button1Anim, this)
-    let button2 = new Button(button2Model, {}, button2Anim, this)
-    let button3 = new Button(button3Model, {}, button3Anim, this)
+    const button1 = new Button(button1Model, {}, button1Anim, this)
+    const button2 = new Button(button2Model, {}, button2Anim, this)
+    const button3 = new Button(button3Model, {}, button3Anim, this)
 
     button1.addComponent(
       new OnPointerDown(() => {
